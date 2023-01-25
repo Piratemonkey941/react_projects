@@ -1,0 +1,78 @@
+import { useState } from 'react'
+import { useEffect } from 'react'
+import './App.css';
+
+
+// =====================================HOOKS======================================
+const App = () => {
+  
+  const [counter, setCounter] = useState(0);        // Declare a state variable named counter, with an initial value of 0, and a state updater function named setCounter
+
+  useEffect(() => {                                 // useEffect is a React Hook that allows you to synchronize a component with an external system. The useEffect Hook allows you to synchronize a component with an external system.
+    
+    // setCounter(100);                                // This sets counter to 100
+    
+    alert("You changed the counter to " + counter)  // This alerts the new value of counter
+   
+    // counter = 100;         // The following is not allowed because state updates must be made through setCounter    
+    // alert('Reload')        // This alerts 'Reload'
+  }, [counter]);                                    // the dependency array is required for setCounter. If you don't specify the dependency array, the effect will run on every render.
+
+  return (
+    <div className='App'>
+      <br />      
+      <button onClick={() => setCounter((prevCount) => prevCount + 1)}> + </button> {/* JSX element for the increment button, which increases the value of counter by 1 when clicked */}      
+      <h1> {counter} </h1>                                                          {/* JSX element to display the value of counter */}      
+      <button onClick={() => setCounter((prevCount) => prevCount - 1)}> - </button> {/* JSX element for the decrement button, which decreases the value of counter by 1 when clicked */}
+    </div>
+  )
+}
+
+// ====================================COMPONANTS AND PROPS======================================
+// const Person = (props) => {
+//   return (
+//     <>      
+//       <h1>Name: {props.name}</h1>           {/* JSX element to display the name passed as a prop */}      
+//       <h2>Lastname: {props.lastName}</h2>   {/* JSX element to display the lastname passed as a prop */}      
+//       <h2>Age: {props.age}</h2>             {/* JSX element to display the age passed as a prop */}
+//     </>
+//   )
+// }
+
+// const App = () => {
+  
+//   const name = null;              // Declare a variable named name with a value of null  
+//   // const isUserLoggedIn = true; // Uncomment to declare a variable named isUserLoggedIn with a value of true  
+//   // const name = 'Anthony';      // Uncomment to declare a variable named name with a value of 'Anthony'  
+//   // const isNameShowing = false  // Uncomment to declare a variable named isNameShowing with a value of false
+
+//   return (
+//     <div className="App">
+      
+//       {/* <h1>Hello World, Its React!</h1> */}             {/* JSX element to display "Hello World, Its React!" */}
+//       {/*<h1>Hi {isNameShowing ? name : "You"}!</h1> */}
+      
+//       <Person name={"John"} lastName={"Smith"} age={30}/>  {/* JSX element to render the Person component with props passed */}                           
+//       <Person name={"Jane"} lastName={"Smith"} age={27}/>                               
+//       <Person name={"Joe"} lastName={"Smith"} age={6}/> 
+      
+//       <h1>Hi {2+2}!</h1>                                    {/* JSX element to display "Hi 4!" */}
+      
+//       {/* Conditional rendering: if the name variable is truthy, render the JSX element containing "test", 
+//           else render the JSX element containing "test" and "there is no name" */}
+//       {name ? (
+//         <>
+//           test
+//         </>
+//       ) : (
+//         <>
+//           <h1>test</h1>
+//           <h1>there is no name</h1>
+//         </>
+//       )}
+
+//     </div>
+//   );
+// }
+
+export default App;
