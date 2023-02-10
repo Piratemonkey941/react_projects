@@ -6,7 +6,7 @@ import MovieCard from "./movieCard";
 import "./App.css";
 
 // endpoint for the OMDb API
-
+const API_URL = "http://www.omdbapi.com/?i=tt3896198&apikey=b7f85bca";
 
 const App = () => {
   
